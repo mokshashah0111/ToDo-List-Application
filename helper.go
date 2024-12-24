@@ -9,33 +9,12 @@ import (
 	"golang.org/x/crypto/bcrypt"
 
 )
-func SaveToFile(tasks []TaskTb){
-	file,err := os.Create("tasks.txt")
-
-	if err!= nil {
-		fmt.Println("Error creating file!")
-		return
-	}
-	defer file.Close()
-
-	for _,task := range tasks{
-		status := " "
-		if task.Completed{
-			status = "x"
-		}
-		file.WriteString(fmt.Sprintf("[%s] %s\n", status,task.TaskText))
-	}
-	fmt.Println("Tasks saved to the file successfully")
-	askMenu()
-}
-
 func showMenu(){
 	fmt.Println("\nMenu:")
 	fmt.Println("1. Show Tasks")
 	fmt.Println("2. Add task")
 	fmt.Println("3. Mark task as completed")
-	fmt.Println("4. Save the tasks to file")
-	fmt.Println("5. Exit")
+	fmt.Println("4. Exit")
 }
 
 func getUserInput(prompt string) string{
