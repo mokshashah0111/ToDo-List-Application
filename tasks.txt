@@ -1,0 +1,2 @@
+[x] get meds
+[ ] homework
